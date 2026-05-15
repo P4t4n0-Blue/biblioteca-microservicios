@@ -2,12 +2,16 @@ package com.biblioteca.usuario_service.controller;
 
 import com.biblioteca.usuario_service.model.Usuario;
 import com.biblioteca.usuario_service.service.UsuarioService;
+import jakarta.validation.Valid;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@Slf4j
 @RestController
 @RequestMapping("/usuarios")
 public class UsuarioController {
@@ -29,8 +33,13 @@ public class UsuarioController {
 
     // POST
     @PostMapping
-    public ResponseEntity<Usuario> guardarUsuario(@RequestBody Usuario usuario){
-        return ResponseEntity.ok(usuarioService.guardarUsuario(usuario));
+    public ResponseEntity<Usuario> crearUsuario(@Valid @RequestBody Usuario usuario) {
+        log.info("Intentando registrar usuario con correo: {}", usuario.getCorreo());
+
+        Usuario nuevoUsuario = usuarioService.guardarUsuario(usuario);
+
+        log.info("Usuario guardado con éxito. ID: {}", nuevoUsuario.getId());
+        return ResponseEntity.status(HttpStatus.CREATED).body(nuevoUsuario);
     }
 
     // PUT
