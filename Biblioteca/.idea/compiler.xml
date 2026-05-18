@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Annotation profile for prestamo-service" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.46/lombok-1.18.46.jar" />
+        </processorPath>
+        <module name="usuario-service" />
+        <module name="reserva-service" />
+        <module name="libro-service" />
+        <module name="prestamo-service" />
+        <module name="categoria-service" />
+        <module name="multa-service" />
+        <module name="autor-service" />
+        <module name="inventario-service" />
+        <module name="autenticacion-service" />
+        <module name="reporte-service" />
+      </profile>
+    </annotationProcessing>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="autenticacion-service" options="-parameters" />
+      <module name="autor-service" options="-parameters" />
+      <module name="categoria-service" options="-parameters" />
+      <module name="inventario-service" options="-parameters" />
+      <module name="libro-service" options="-parameters" />
+      <module name="multa-service" options="-parameters" />
+      <module name="prestamo-service" options="-parameters" />
+      <module name="reporte-service" options="-parameters" />
+      <module name="reserva-service" options="-parameters" />
+      <module name="usuario-service" options="-parameters" />
+    </option>
+  </component>
+</project>
